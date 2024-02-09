@@ -4,7 +4,7 @@ namespace EventPad.Context.Entities;
 
 public class CashoutReceipt : BaseEntity
 {
-    public int UserId { get; set; }
+    public int UserAccountId { get; set; }
     public virtual User User { get; set; }
 
     public string BankAccount { get; set; }

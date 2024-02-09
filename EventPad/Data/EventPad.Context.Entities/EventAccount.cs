@@ -10,4 +10,6 @@ public class EventAccount
 
     public string AccountNumber {  get; set; }
     public decimal Balance { get; set; }
+
+    public virtual ICollection<CashoutEventReceipt>? Cashouts { get; set;}
 }

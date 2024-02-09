@@ -4,11 +4,17 @@ namespace EventPad.Context.Entities;
 
 public enum EventStatus
 {
-    Planned,
-    Started,
-    Completed,
-    Moved,
-    Cancelled
+    Planned = 0,
+    Started = 1,
+    Completed = 2,
+    Moved = 3,
+    Cancelled = 4
+}
+
+public enum EventType
+{
+    Single = 0,
+    Multiple = 1
 }
 
 public class Event : BaseEntity
@@ -18,12 +24,15 @@ public class Event : BaseEntity
     public decimal Price { get; set; }
     public string Address { get; set; }
     public EventStatus Status { get; set; }
-    public bool Repeat {  get; set; }
+    public EventType Repeat {  get; set; }
     public string? MainPhoto { get; set; }
 
 
-    public int UserId { get; set; }
+    public int AdminId { get; set; }
     public virtual User User { get; set; }
 
+    public virtual EventAccount EventAccount { get; set; }
+
     public virtual ICollection<EventPhoto>? Photos { get; set; }
+    public virtual ICollection<EventTicket>? Tickets { get; set; }
 }

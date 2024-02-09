@@ -10,4 +10,10 @@ public  class UserAccount
 
     public string AccountNumber { get; set; }
     public decimal Balance { get; set; }
+
+
+    public virtual ICollection<DepositReceipt>? Deposits { get; set; }
+    public virtual ICollection<CashoutReceipt>? Cashouts { get; set; }
+    public virtual ICollection<PurchaseReceipt>? Purchases { get; set; }
+    public virtual ICollection<RefundReceipt>? Refunds { get; set; }
 }

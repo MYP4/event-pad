@@ -4,20 +4,20 @@ namespace EventPad.Context.Entities;
 
 public enum Week
 {
-    Monday,
-    Tuesday, 
-    Wednesday,
-    Thursday,
-    Friday,
-    Saturday,
-    Sunday
+    Monday = 0,
+    Tuesday = 1, 
+    Wednesday = 2,
+    Thursday = 3,
+    Friday = 4,
+    Saturday = 5,
+    Sunday = 6
 }
 
 public enum TicketStatus
 {
-    Paid,
-    Booked,
-    Returned
+    Paid = 0,
+    Booked = 1,
+    Returned = 2
 }
 
 public class EventTicket : BaseEntity
@@ -33,4 +33,8 @@ public class EventTicket : BaseEntity
     public bool Private { get; set; }
     public string ArticleNumber { get; set; }
     public TicketStatus Status { get; set; }
+
+    public virtual ICollection<EventVisitor>? Visitors { get; set; }
+    public virtual ICollection<PurchaseReceipt>? Purchases { get; set; }
+    public virtual ICollection<RefundReceipt>? Refunds { get; set; }
 }

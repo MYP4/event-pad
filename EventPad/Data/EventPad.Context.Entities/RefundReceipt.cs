@@ -4,7 +4,7 @@ namespace EventPad.Context.Entities;
 
 public class RefundReceipt : BaseEntity
 {
-    public int UserId { get; set; }
+    public int UserAccountId { get; set; }
     public virtual User User { get; set; }
 
     public int EventTicketId { get; set; }

@@ -3,6 +3,7 @@ using EventPad.Api.Configuration;
 using EventPad.Common.Settings;
 using EventPad.Services.Logger;
 using EventPad.Services.Settings;
+using EventPad.Context;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,17 +12,28 @@ var logSettings = Settings.Load<LogSettings>("Log");
 var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
 
 builder.AddAppLogger(mainSettings, logSettings);
-builder.Services.AddHttpContextAccessor();
 
-builder.Services.AddAppAutoMappers();
-builder.Services.AddAppValidator();
-builder.Services.AddAppCors();
-builder.Services.AddAppControllerAndViews();
-builder.Services.AddAppHealthChecks();
-builder.Services.AddAppVersioning();
-builder.Services.AddAppSwagger(mainSettings, swaggerSettings);
+var services = builder.Services;
 
-builder.Services.RegisterServices(builder.Configuration);
+services.AddHttpContextAccessor();
+
+services.AddAppDbContext(builder.Configuration);
+
+services.AddAppAutoMappers();
+
+services.AddAppValidator();
+
+services.AddAppCors();
+
+services.AddAppControllerAndViews();
+
+services.AddAppHealthChecks();
+
+services.AddAppVersioning();
+
+services.AddAppSwagger(mainSettings, swaggerSettings);
+
+services.RegisterServices(builder.Configuration);
 
 
 

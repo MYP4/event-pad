@@ -4,8 +4,8 @@ namespace EventPad.Context.Entities;
 
 public enum VisitorStatus
 {
-    Active,
-    Ban
+    Active = 0,
+    Ban = 1
 }
 
 public class EventVisitor : BaseEntity

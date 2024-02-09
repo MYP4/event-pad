@@ -19,9 +19,14 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Data\EventPad.Context\EventPad.Context.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Logger\EventPad.Services.Logger.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Settings\EventPad.Services.Settings.csproj" />
       <ProjectReference Include="..\..\..\Shared\EventPad.Common\EventPad.Common.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="logs\" />
     </ItemGroup>
 
 

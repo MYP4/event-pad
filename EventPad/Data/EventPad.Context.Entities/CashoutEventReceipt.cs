@@ -1,6 +1,7 @@
 ﻿using EventPad.Context.Entities.Common;
 
 namespace EventPad.Context.Entities;
+
 public class CashoutEventReceipt : BaseEntity
 {
     public int EventAccountId { get; set; }

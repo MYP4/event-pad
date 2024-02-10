@@ -9,7 +9,7 @@ public class EventAccount
     public virtual Event Event { get; set; }
 
     public string AccountNumber {  get; set; }
-    public decimal Balance { get; set; }
+    public float Balance { get; set; }
 
     public virtual ICollection<CashoutEventReceipt>? Cashouts { get; set;}
 }

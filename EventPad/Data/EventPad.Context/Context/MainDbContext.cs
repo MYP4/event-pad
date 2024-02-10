@@ -13,8 +13,28 @@ public class MainDbContext : DbContext
     public DbSet<CashoutEventReceipt> CashoutEventReceipts { get; set; }
     public DbSet<EventTicket> EventTickets { get; set; }
     public DbSet<EventVisitor> EventVisitors { get; set; }
-    public DbSet<PurchaseReceipt> PurchaseReceipts { get; set;}
-    public DbSet<RefundReceipt> RefundReceipts { get; set;}
-    public DbSet<DepositReceipt> DepositReceipts { get; set;}
-    public DbSet<CashoutReceipt> CashoutReceipts { get; set;}
+    public DbSet<PurchaseReceipt> PurchaseReceipts { get; set; }
+    public DbSet<RefundReceipt> RefundReceipts { get; set; }
+    public DbSet<DepositReceipt> DepositReceipts { get; set; }
+    public DbSet<CashoutReceipt> CashoutReceipts { get; set; }
+
+    public MainDbContext(DbContextOptions<MainDbContext> options) : base(options) { }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+
+        modelBuilder.ConfigureUsers();
+        modelBuilder.ConfigureUserAccounts();
+        modelBuilder.ConfigureEvents();
+        modelBuilder.ConfigureEventAccounts();
+        modelBuilder.ConfigureEventPhotos();
+        modelBuilder.ConfigureEventTickets();
+        modelBuilder.ConfigureEventVisitors();
+        modelBuilder.ConfigureCashoutEventReceipts();
+        modelBuilder.ConfigureCashoutReceipts();
+        modelBuilder.ConfigureDepositReceipts();
+        modelBuilder.ConfigureRefundReceipts();
+        modelBuilder.ConfigurePurchaseReceipts();
+    }
 }

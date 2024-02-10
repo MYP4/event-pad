@@ -8,10 +8,12 @@ public static class EventsContextConfiguration
     public static void ConfigureEvents(this ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Event>().ToTable("events");
+
         modelBuilder.Entity<Event>().Property(x => x.Name).IsRequired();
         modelBuilder.Entity<Event>().Property(x => x.Name).HasMaxLength(50);
         modelBuilder.Entity<Event>().Property(x => x.Price).IsRequired();
         modelBuilder.Entity<Event>().Property(x => x.Address).IsRequired();
+        modelBuilder.Entity<Event>().Property(x => x.Address).HasMaxLength(100);
         modelBuilder.Entity<Event>().Property(x => x.Status).IsRequired();
         modelBuilder.Entity<Event>().Property(x => x.Repeat).IsRequired();
 

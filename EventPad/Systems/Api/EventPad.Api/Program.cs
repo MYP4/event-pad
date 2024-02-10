@@ -39,13 +39,17 @@ services.RegisterServices(builder.Configuration);
 
 var app = builder.Build();
 
+var logger = app.Services.GetRequiredService<IAppLogger>();
+
 app.UseAppSwagger();
 
 app.UseAppHealthChecks();
 app.UseAppCors();
 app.UseAppControllerAndViews();
 
-var logger = app.Services.GetRequiredService<IAppLogger>();
+
+
+DbInitializer.Execute(app.Services);
 
 logger.Information("The EventPad API was started");
 

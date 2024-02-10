@@ -9,7 +9,7 @@ public  class UserAccount
     public virtual User User { get; set; }
 
     public string AccountNumber { get; set; }
-    public decimal Balance { get; set; }
+    public float Balance { get; set; }
 
 
     public virtual ICollection<DepositReceipt>? Deposits { get; set; }

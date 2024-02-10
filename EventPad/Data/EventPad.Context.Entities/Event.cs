@@ -21,7 +21,7 @@ public class Event : BaseEntity
 {
     public string Name { get; set; }
     public string? Description { get; set; }
-    public decimal Price { get; set; }
+    public float Price { get; set; }
     public string Address { get; set; }
     public EventStatus Status { get; set; }
     public EventType Repeat {  get; set; }

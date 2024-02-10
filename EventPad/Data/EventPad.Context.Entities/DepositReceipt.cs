@@ -5,9 +5,9 @@ namespace EventPad.Context.Entities;
 public class DepositReceipt : BaseEntity
 {
     public int UserAccountId { get; set; }
-    public virtual User User { get; set; }
+    public virtual UserAccount UserAccount { get; set; }
 
-    public decimal Amount { get; set; }
+    public float Amount { get; set; }
     public DateTime DateTime { get; set; }
     public string RKTransactionId { get; set; }
 }

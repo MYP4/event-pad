@@ -9,6 +9,10 @@
 
     <ItemGroup>
 		<PackageReference Include="Asp.Versioning.Mvc.ApiExplorer" Version="7.1.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.0">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="Serilog" Version="3.1.1" />
         <PackageReference Include="Serilog.Enrichers.CorrelationId" Version="3.0.1" />
@@ -19,6 +23,8 @@
     </ItemGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\..\..\Data\EventPad.Context.Migrations\EventPad.Context.Migrations.MSSQL\EventPad.Context.Migrations.MSSQL.csproj" />
+      <ProjectReference Include="..\..\..\Data\EventPad.Context.Migrations\EventPad.Context.Migrations.PgSQL\EventPad.Context.Migrations.PgSql.csproj" />
       <ProjectReference Include="..\..\..\Data\EventPad.Context\EventPad.Context.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Logger\EventPad.Services.Logger.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Settings\EventPad.Services.Settings.csproj" />

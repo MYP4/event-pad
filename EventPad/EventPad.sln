@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Context.Migrations
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Context.Migrations.PgSql", "Data\EventPad.Context.Migrations\EventPad.Context.Migrations.PgSQL\EventPad.Context.Migrations.PgSql.csproj", "{A79701EC-FD0A-417C-B560-E35E2E8F4698}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPad.Context.Seeder", "Data\EventPad.Context.Seeder\EventPad.Context.Seeder.csproj", "{3D2AB77D-7378-49C8-A5E3-42B8BE06397D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Context.Seeder", "Data\EventPad.Context.Seeder\EventPad.Context.Seeder.csproj", "{3D2AB77D-7378-49C8-A5E3-42B8BE06397D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPad.Services.Events", "Services\EventPad.Services.Events\EventPad.Services.Events.csproj", "{8295659A-C845-41E7-842E-A7D6532DEF66}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{3D2AB77D-7378-49C8-A5E3-42B8BE06397D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D2AB77D-7378-49C8-A5E3-42B8BE06397D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D2AB77D-7378-49C8-A5E3-42B8BE06397D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8295659A-C845-41E7-842E-A7D6532DEF66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8295659A-C845-41E7-842E-A7D6532DEF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8295659A-C845-41E7-842E-A7D6532DEF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8295659A-C845-41E7-842E-A7D6532DEF66}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -99,6 +105,7 @@ Global
 		{D41D05ED-FAF6-4195-A324-DCFDA0EE3DEF} = {FB4BE6AF-9794-4D60-A733-2C9AADB19DCF}
 		{A79701EC-FD0A-417C-B560-E35E2E8F4698} = {FB4BE6AF-9794-4D60-A733-2C9AADB19DCF}
 		{3D2AB77D-7378-49C8-A5E3-42B8BE06397D} = {B5752C6B-CC24-40A2-AE7E-66A130F44A12}
+		{8295659A-C845-41E7-842E-A7D6532DEF66} = {6C329BAC-B6F6-4EEA-82D2-7FB53C870407}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E0E433B-0D0E-44D5-B733-2BC156AE1A4A}

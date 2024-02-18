@@ -17,6 +17,6 @@ public static class EventsContextConfiguration
         modelBuilder.Entity<Event>().Property(x => x.Status).IsRequired();
         modelBuilder.Entity<Event>().Property(x => x.Repeat).IsRequired();
 
-        modelBuilder.Entity<Event>().HasOne(x => x.User).WithMany(x => x.Events).HasForeignKey(x => x.AdminId);
+        modelBuilder.Entity<Event>().HasOne(x => x.Admin).WithMany(x => x.Events).HasForeignKey(x => x.AdminId);
     }
 }

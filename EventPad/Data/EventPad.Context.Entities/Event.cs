@@ -2,21 +2,6 @@
 
 namespace EventPad.Context.Entities;
 
-public enum EventStatus
-{
-    Planned = 0,
-    Started = 1,
-    Completed = 2,
-    Moved = 3,
-    Cancelled = 4
-}
-
-public enum EventType
-{
-    Single = 0,
-    Multiple = 1
-}
-
 public class Event : BaseEntity
 {
     public string Name { get; set; }
@@ -29,7 +14,7 @@ public class Event : BaseEntity
 
 
     public int AdminId { get; set; }
-    public virtual User User { get; set; }
+    public virtual User Admin { get; set; }
 
     public virtual EventAccount EventAccount { get; set; }
 

@@ -4,6 +4,9 @@ namespace EventPad.Context.Entities;
 
 public class User : BaseEntity
 {
+    public string FirstName { get; set; }
+    public string SecondName { get; set; }
+
 
     public virtual UserAccount Account { get; set; }
 

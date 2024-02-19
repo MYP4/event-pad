@@ -1,6 +1,5 @@
 ﻿namespace EventPad.Services.Events;
 
-using EventPad.Services.Events.Events;
 using Microsoft.Extensions.DependencyInjection;
 
 public static class Bootstrapper

@@ -1,4 +1,5 @@
 ﻿using Asp.Versioning;
+using AutoMapper;
 using EventPad.Services.Events;
 using EventPad.Services.Logger;
 using Microsoft.AspNetCore.Mvc;
@@ -14,19 +15,25 @@ public class EventController : ControllerBase
 {
     private readonly IAppLogger logger;
     private readonly IEventService eventService;
+    private readonly IMapper mapper;
+   
 
-
-    public EventController(IAppLogger logger, IEventService eventService)
+    public EventController(IAppLogger logger, IEventService eventService, IMapper mapper)
     {
         this.logger = logger;
         this.eventService = eventService;
+        this.mapper = mapper;
     }
 
+
     [HttpGet("")]
-    public async Task<IEnumerable<EventModel>> GetAll()
+    public async Task<IEnumerable<EventResponse>> GetAll([FromQuery] int page = 1, [FromQuery] int pageSize = 10, [FromQuery] EventFilterRequest filter = null)
     {
-        return await eventService.GetAll();
+        var result = await eventService.GetEvents(page, pageSize, mapper.Map<EventModelFilter>(filter));
+
+        return mapper.Map<IEnumerable<EventResponse>>(result);
     }
+
 
     [HttpGet("{id:Guid}")]
     public async Task<IActionResult> Get([FromRoute] Guid id)
@@ -38,20 +45,25 @@ public class EventController : ControllerBase
             return NotFound();
         }
 
-        return Ok(result);
+        return Ok(mapper.Map<EventResponse>(result));
     }
+
 
     [HttpPost("")]
-    public async Task<EventModel> Create(CreateModel request)
+    public async Task<EventResponse> Create(CreateEventRequest request)
     {
-        return await eventService.Create(request);
+        var result = await eventService.Create(mapper.Map<CreateEventModel>(request));
+
+        return mapper.Map<EventResponse>(result);
     }
 
+
     [HttpPut("{id:Guid}")]
-    public async Task Update([FromRoute] Guid id, UpdateModel request)
+    public async Task Update([FromRoute] Guid id, UpdateEventRequest request)
     {
-        await eventService.Update(id, request);
+        await eventService.Update(id, mapper.Map<UpdateEventModel>(request));
     }
+
 
     [HttpDelete("{id:Guid}")]
     public async Task Delete([FromRoute] Guid id)

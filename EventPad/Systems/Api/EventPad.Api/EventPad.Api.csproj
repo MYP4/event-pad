@@ -34,7 +34,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\Events\Requests\" />
       <Folder Include="logs\" />
     </ItemGroup>
 

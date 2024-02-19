@@ -168,10 +168,10 @@ namespace EventPad.Context.Migrations.PgSql.Migrations
                     b.Property<float>("Price")
                         .HasColumnType("real");
 
-                    b.Property<int>("Repeat")
+                    b.Property<int>("Status")
                         .HasColumnType("integer");
 
-                    b.Property<int>("Status")
+                    b.Property<int>("Type")
                         .HasColumnType("integer");
 
                     b.Property<Guid>("Uid")
@@ -404,6 +404,12 @@ namespace EventPad.Context.Migrations.PgSql.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("text");
+
+                    b.Property<string>("SecondName")
+                        .HasColumnType("text");
+
                     b.Property<Guid>("Uid")
                         .HasColumnType("uuid");
 
@@ -482,7 +488,7 @@ namespace EventPad.Context.Migrations.PgSql.Migrations
 
             modelBuilder.Entity("EventPad.Context.Entities.Event", b =>
                 {
-                    b.HasOne("EventPad.Context.Entities.User", "User")
+                    b.HasOne("EventPad.Context.Entities.User", "Admin")
                         .WithMany("Events")
                         .HasForeignKey("AdminId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -494,9 +500,9 @@ namespace EventPad.Context.Migrations.PgSql.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("EventAccount");
+                    b.Navigation("Admin");
 
-                    b.Navigation("User");
+                    b.Navigation("EventAccount");
                 });
 
             modelBuilder.Entity("EventPad.Context.Entities.EventPhoto", b =>

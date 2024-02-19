@@ -9,7 +9,7 @@ public class Event : BaseEntity
     public float Price { get; set; }
     public string Address { get; set; }
     public EventStatus Status { get; set; }
-    public EventType Repeat {  get; set; }
+    public EventType Type {  get; set; }
     public string? MainPhoto { get; set; }
 
 

@@ -3,6 +3,7 @@ using EventPad.Common.Exceptions;
 using EventPad.Context;
 using EventPad.Context.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace EventPad.Services.Events;
 
@@ -18,13 +19,43 @@ public class EventService : IEventService
     }
 
 
-    public async Task<IEnumerable<EventModel>> GetAll()
+    public async Task<IEnumerable<EventModel>> GetEvents(int page = 1, int pageSize = 10, EventModelFilter filter = null)
     {
+        var name = filter?.Name;
+        var minPrice = filter?.MinPrice;
+        var maxPrice = filter?.MaxPrice;
+        var type = filter?.Type;
+
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var events = await context.Events.ToListAsync();
+        var events = context.Events.AsQueryable();
 
-        var result = mapper.Map<IEnumerable<EventModel>>(events);
+        if (name != null)
+        {
+            events = events.Where(e => e.Name.ToLower().Contains(name.ToLower()));
+        }
+
+        if (maxPrice != null)
+        {
+            events = events.Where(e => e.Price <= maxPrice);
+        }
+
+        if (minPrice != null)
+        {
+            events = events.Where(e => e.Price >= minPrice);
+        }
+
+
+        if (type != null)
+        {
+            events = events.Where(e => e.Type == type);
+        }
+
+        events = events.Skip((page - 1) * pageSize).Take(pageSize);
+
+        var eventList = await events.ToListAsync();
+
+        var result = mapper.Map<IEnumerable<EventModel>>(eventList);
 
         return result;
     }
@@ -40,7 +71,7 @@ public class EventService : IEventService
         return result;
     }
 
-    public async Task<EventModel> Create(CreateModel model)
+    public async Task<EventModel> Create(CreateEventModel model)
     {
         //await createModelValidator.CheckAsync(model);
 
@@ -52,11 +83,10 @@ public class EventService : IEventService
 
         await context.SaveChangesAsync();
 
-
         return mapper.Map<EventModel>(_event);
     }
 
-    public async Task Update(Guid id, UpdateModel model)
+    public async Task Update(Guid id, UpdateEventModel model)
     {
         //await updateModelValidator.CheckAsync(model);
 

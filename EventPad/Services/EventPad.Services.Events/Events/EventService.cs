@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using EventPad.Common.Exceptions;
+using EventPad.Common.Validator;
 using EventPad.Context;
 using EventPad.Context.Entities;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 
 namespace EventPad.Services.Events;
 
@@ -11,11 +11,18 @@ public class EventService : IEventService
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
     private readonly IMapper mapper;
+    private readonly IModelValidator<CreateEventModel> createModelValidator;
+    private readonly IModelValidator<UpdateEventModel> updateModelValidator;
 
-    public EventService(IDbContextFactory<MainDbContext> dbContextFactory, IMapper mapper)
+    public EventService(IDbContextFactory<MainDbContext> dbContextFactory,
+        IMapper mapper,
+        IModelValidator<CreateEventModel> createModelValidator,
+        IModelValidator<UpdateEventModel> updateModelValidator)
     {
         this.dbContextFactory = dbContextFactory;
         this.mapper = mapper;
+        this.createModelValidator = createModelValidator;
+        this.updateModelValidator = updateModelValidator;
     }
 
 
@@ -73,7 +80,7 @@ public class EventService : IEventService
 
     public async Task<EventModel> Create(CreateEventModel model)
     {
-        //await createModelValidator.CheckAsync(model);
+        await createModelValidator.CheckAsync(model);
 
         using var context = await dbContextFactory.CreateDbContextAsync();
 
@@ -88,7 +95,7 @@ public class EventService : IEventService
 
     public async Task Update(Guid id, UpdateEventModel model)
     {
-        //await updateModelValidator.CheckAsync(model);
+        await updateModelValidator.CheckAsync(model);
 
         using var context = await dbContextFactory.CreateDbContextAsync();
 

@@ -14,12 +14,10 @@ public class EventModel
     public string Address { get; set; }
     public EventStatus Status { get; set; }
     public EventType Type { get; set; }
-    public string MainPhoto { get; set; }
+    public string? MainPhoto { get; set; }
 
     public Guid AdminId { get; set; }
     public string AdminName { get; set; }
-
-    public IEnumerable<string>? Photos { get; set; }
 }
 
 
@@ -32,7 +30,7 @@ public class EventModelProfile : Profile
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.AdminId, opt => opt.Ignore())
             .ForMember(dest => dest.AdminName, opt => opt.Ignore())
-            .ForMember(dest => dest.Photos, opt => opt.Ignore())
+
             ;
     }
 }
@@ -57,6 +55,5 @@ public class EventModelActions : IMappingAction<Event, EventModel>
         dest.Id = model.Uid;
         dest.AdminId = model.Admin.Uid;
         dest.AdminName = model.Admin.FirstName + " " + model.Admin.SecondName;
-        dest.Photos = model.Photos?.Select(x => x.Path);
     }
 }

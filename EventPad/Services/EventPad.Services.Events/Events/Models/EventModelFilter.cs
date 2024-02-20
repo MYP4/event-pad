@@ -9,3 +9,5 @@ public class EventModelFilter
     public float? MaxPrice { get; set; }
     public EventType? Type { get; set; }
 }
+
+

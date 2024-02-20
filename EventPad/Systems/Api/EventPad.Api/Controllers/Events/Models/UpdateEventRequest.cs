@@ -11,6 +11,5 @@ public class UpdateEventRequest
     public string Status { get; set; }
     public EventType Type { get; set; }
     public string? MainPhoto { get; set; }
-    public IEnumerable<string> Photos { get; set; }
 }
 

@@ -3,6 +3,7 @@
     "Application": {
       "commandName": "Project",
       "launchBrowser": true,
+      "launchUrl": "http://localhost:5069/docs",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

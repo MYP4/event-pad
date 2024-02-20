@@ -19,10 +19,6 @@ services.AddHttpContextAccessor();
 
 services.AddAppDbContext(builder.Configuration);
 
-services.AddAppAutoMappers();
-
-services.AddAppValidator();
-
 services.AddAppCors();
 
 services.AddAppControllerAndViews();
@@ -35,6 +31,9 @@ services.AddAppSwagger(mainSettings, swaggerSettings);
 
 services.RegisterServices(builder.Configuration);
 
+services.AddAppAutoMappers();
+
+services.AddAppValidator();
 
 
 var app = builder.Build();

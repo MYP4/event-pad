@@ -15,6 +15,4 @@ public class EventResponse
 
     public Guid AdminId { get; set; }
     public string AdminName { get; set; }
-
-    public IEnumerable<string>? Photos { get; set; }
 }

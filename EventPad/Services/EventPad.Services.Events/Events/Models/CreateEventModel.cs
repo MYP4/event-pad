@@ -16,7 +16,6 @@ public class CreateEventModel
     public string Address { get; set; }
     public EventType Type { get; set; }
     public string? MainPhoto { get; set; }
-    public IEnumerable<string> Photos { get; set; }
 }
 
 
@@ -27,6 +26,9 @@ public class CreateModelProfile : Profile
         CreateMap<CreateEventModel, Event>()
             .ForMember(dest => dest.AdminId, opt => opt.Ignore())
             .ForMember(dest => dest.Photos, opt => opt.Ignore())
+            .ForMember(dest => dest.Tickets, opt => opt.Ignore())
+            .ForMember(dest => dest.EventAccount, opt => opt.Ignore())
+
             .AfterMap<CreateModelActions>();
     }
 }
@@ -44,10 +46,16 @@ public class CreateModelActions : IMappingAction<CreateEventModel, Event>
     {
         using var db = dbContextFactory.CreateDbContext();
 
-        var author = db.Users.FirstOrDefault(x => x.Uid == source.AdminId);
+        var admin = db.Users.FirstOrDefault(x => x.Uid == source.AdminId);
 
-        dest.AdminId = author.Id;
-    }
+        dest.AdminId = admin.Id;
+        dest.Status = EventStatus.Planned;
+        dest.EventAccount = new EventAccount()
+        {
+            AccountNumber = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString().PadLeft(16, '0'),
+            Balance = 0
+        };
+    }  
 }
 
 public class CreateEventModelValidator : AbstractValidator<CreateEventModel>

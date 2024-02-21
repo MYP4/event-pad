@@ -36,7 +36,7 @@ public class CreateModelProfile : Profile
 public class CreateModelActions : IMappingAction<CreateEventModel, Event>
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
-    private IEventAccountService eventAccountService;
+    private readonly IEventAccountService eventAccountService;
 
     public CreateModelActions(IDbContextFactory<MainDbContext> dbContextFactory, IEventAccountService eventAccountService)
     {
@@ -47,12 +47,12 @@ public class CreateModelActions : IMappingAction<CreateEventModel, Event>
     public void Process(CreateEventModel source, Event dest, ResolutionContext context)
     {
         using var db = dbContextFactory.CreateDbContext();
-
+        var account = eventAccountService.Create().GetAwaiter().GetResult();
         var admin = db.Users.FirstOrDefault(x => x.Uid == source.AdminId);
 
         dest.AdminId = admin.Id;
         dest.Status = EventStatus.Planned;
-        dest.EventAccount = eventAccountService.Create().GetAwaiter().GetResult();
+        dest.EventAccount = account;
     }
 }
 

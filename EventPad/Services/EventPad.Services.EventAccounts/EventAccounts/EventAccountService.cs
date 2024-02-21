@@ -31,13 +31,15 @@ public class EventAccountService : IEventAccountService
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var eventAccounts = context.EventAccounts.ToListAsync();
+        var eventAccounts = context.EventAccounts.AsQueryable();
 
-        var result = mapper.Map<IEnumerable<EventAccountModel>>(eventAccounts);
+        var eventAccountList = await eventAccounts.ToListAsync();
+
+        var result = mapper.Map<IEnumerable<EventAccountModel>>(eventAccountList);
 
         return result;
     }
-     
+    
     public async Task<EventAccountModel> GetEventAccountById(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();

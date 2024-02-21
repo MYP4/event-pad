@@ -4,6 +4,7 @@ using EventPad.Services.Logger;
 using EventPad.Services.Settings;
 using EventPad.Context.Seeder;
 using EventPad.Services.Events;
+using EventPad.Services.EventAccounts;
 
 public static class Bootstrapper
 {
@@ -16,6 +17,7 @@ public static class Bootstrapper
             .AddAppLogger()
             .AddDbSeeder()
             .AddEventService()
+            .AddEventAccountService()
             ;
 
         return services;

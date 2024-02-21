@@ -52,8 +52,8 @@ public class EventAccountController : ControllerBase
     [HttpPut("{id:Guid}")]
     public async Task<EventAccountResponse> Update([FromRoute] Guid id, UpdateEventAccountRequest request)
     {
-        //var model = mapper.Map<UpdateEventModel>(request);
-        var result = await eventAccountService.Update(id, mapper.Map<UpdateEventAccountModel>(request));
+        var model = mapper.Map<UpdateEventAccountModel>(request);
+        var result = await eventAccountService.Update(id, model);
 
         return mapper.Map<EventAccountResponse>(result);
     }

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.8.34525.116
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{B5752C6B-CC24-40A2-AE7E-66A130F44A12}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Servises", "Servises", "{6C329BAC-B6F6-4EEA-82D2-7FB53C870407}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{6C329BAC-B6F6-4EEA-82D2-7FB53C870407}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{93D95391-5AFB-4988-B4AD-775CE1B00553}"
 EndProject
@@ -39,7 +39,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Context.Migrations
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Context.Seeder", "Data\EventPad.Context.Seeder\EventPad.Context.Seeder.csproj", "{3D2AB77D-7378-49C8-A5E3-42B8BE06397D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPad.Services.Events", "Services\EventPad.Services.Events\EventPad.Services.Events.csproj", "{8295659A-C845-41E7-842E-A7D6532DEF66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Services.Events", "Services\EventPad.Services.Events\EventPad.Services.Events.csproj", "{8295659A-C845-41E7-842E-A7D6532DEF66}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "_docker", "_docker", "{78BFB977-2A8E-4AED-AF96-537DB56CEDFB}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-override.yml = docker-compose-override.yml
+		docker-compose.yml = docker-compose.yml
+		env.worker = env.worker
+		env.api = env.api
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPad.Services.EventAccounts", "Services\EventPad.Services.EventAccounts\EventPad.Services.EventAccounts.csproj", "{6134B54B-6AE7-4D1C-AA65-6BB043395BD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,6 +97,10 @@ Global
 		{8295659A-C845-41E7-842E-A7D6532DEF66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8295659A-C845-41E7-842E-A7D6532DEF66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8295659A-C845-41E7-842E-A7D6532DEF66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6134B54B-6AE7-4D1C-AA65-6BB043395BD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6134B54B-6AE7-4D1C-AA65-6BB043395BD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6134B54B-6AE7-4D1C-AA65-6BB043395BD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6134B54B-6AE7-4D1C-AA65-6BB043395BD9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -106,6 +120,7 @@ Global
 		{A79701EC-FD0A-417C-B560-E35E2E8F4698} = {FB4BE6AF-9794-4D60-A733-2C9AADB19DCF}
 		{3D2AB77D-7378-49C8-A5E3-42B8BE06397D} = {B5752C6B-CC24-40A2-AE7E-66A130F44A12}
 		{8295659A-C845-41E7-842E-A7D6532DEF66} = {6C329BAC-B6F6-4EEA-82D2-7FB53C870407}
+		{6134B54B-6AE7-4D1C-AA65-6BB043395BD9} = {6C329BAC-B6F6-4EEA-82D2-7FB53C870407}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E0E433B-0D0E-44D5-B733-2BC156AE1A4A}

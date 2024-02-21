@@ -11,6 +11,7 @@ var mainSettings = Settings.Load<MainSettings>("Main");
 var logSettings = Settings.Load<LogSettings>("Log");
 var swaggerSettings = Settings.Load<SwaggerSettings>("Swagger");
 
+
 builder.AddAppLogger(mainSettings, logSettings);
 
 var services = builder.Services;
@@ -45,6 +46,8 @@ app.UseAppSwagger();
 app.UseAppHealthChecks();
 app.UseAppCors();
 app.UseAppControllerAndViews();
+
+app.UseAppMiddlewares();
 
 
 

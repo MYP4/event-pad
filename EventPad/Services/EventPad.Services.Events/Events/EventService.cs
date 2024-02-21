@@ -93,31 +93,39 @@ public class EventService : IEventService
         return mapper.Map<EventModel>(_event);
     }
 
-    public async Task Update(Guid id, UpdateEventModel model)
+    public async Task<EventModel> Update(Guid id, UpdateEventModel model)
     {
         await updateModelValidator.CheckAsync(model);
 
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var _event = await context.Events.Where(x => x.Uid == id).FirstOrDefaultAsync();
+        var _event = await context.Events.FirstOrDefaultAsync(x => x.Uid == id);
 
         _event = mapper.Map(model, _event);
 
         context.Events.Update(_event);
 
         await context.SaveChangesAsync();
+
+        return mapper.Map<EventModel>(_event);
     }
 
     public async Task Delete(Guid id)
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var _event = await context.Events.Where(x => x.Uid == id).FirstOrDefaultAsync();
+        var _event = await context.Events.FirstOrDefaultAsync(x => x.Uid == id);
 
         if (_event == null)
             throw new ProcessException($"Event (ID = {id}) not found.");
 
+        var eventAccount = await context.EventAccounts.FirstOrDefaultAsync(x => x.EventId == _event.Id);
+
+        if (_event == null)
+            throw new ProcessException($"EventAccount (ID = {id}) not found.");
+
         context.Events.Remove(_event);
+        context.EventAccounts.Remove(eventAccount);
 
         await context.SaveChangesAsync();
     }

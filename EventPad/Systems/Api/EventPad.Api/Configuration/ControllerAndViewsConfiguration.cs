@@ -10,13 +10,13 @@ public static class ControllerAndViewsConfiguration
     {
         services
             .AddRazorPages()
-            //.AddNewtonsoftJson(options => options.SerializerSettings.SetDefaultSettings())
+            .AddNewtonsoftJson(options => options.SerializerSettings.SetDefaultSettings())
             ;
             
 
         services
             .AddControllers()
-            //.AddNewtonsoftJson(options => options.SerializerSettings.SetDefaultSettings())
+            .AddNewtonsoftJson(options => options.SerializerSettings.SetDefaultSettings())
             .ConfigureApiBehaviorOptions(options =>
             {
                 options.InvalidModelStateResponseFactory = context =>

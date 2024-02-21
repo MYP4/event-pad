@@ -7,13 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\..\Data\EventPad.Context.Entities\EventPad.Context.Entities.csproj" />
     <ProjectReference Include="..\..\Data\EventPad.Context\EventPad.Context.csproj" />
-    <ProjectReference Include="..\EventPad.Services.EventAccounts\EventPad.Services.EventAccounts.csproj" />
   </ItemGroup>
 
 </Project>

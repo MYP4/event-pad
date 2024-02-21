@@ -36,10 +36,12 @@ public class CreateModelProfile : Profile
 public class CreateModelActions : IMappingAction<CreateEventModel, Event>
 {
     private readonly IDbContextFactory<MainDbContext> dbContextFactory;
+    private IEventAccountService eventAccountService;
 
-    public CreateModelActions(IDbContextFactory<MainDbContext> dbContextFactory)
+    public CreateModelActions(IDbContextFactory<MainDbContext> dbContextFactory, IEventAccountService eventAccountService)
     {
         this.dbContextFactory = dbContextFactory;
+        this.eventAccountService = eventAccountService;
     }
 
     public void Process(CreateEventModel source, Event dest, ResolutionContext context)
@@ -50,12 +52,8 @@ public class CreateModelActions : IMappingAction<CreateEventModel, Event>
 
         dest.AdminId = admin.Id;
         dest.Status = EventStatus.Planned;
-        dest.EventAccount = new EventAccount()
-        {
-            AccountNumber = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds().ToString().PadLeft(16, '0'),
-            Balance = 0
-        };
-    }  
+        dest.EventAccount = eventAccountService.Create().GetAwaiter().GetResult();
+    }
 }
 
 public class CreateEventModelValidator : AbstractValidator<CreateEventModel>

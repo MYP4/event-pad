@@ -16,7 +16,6 @@ public class EventController : ControllerBase
     private readonly IAppLogger logger;
     private readonly IEventService eventService;
     private readonly IMapper mapper;
-   
 
     public EventController(IAppLogger logger, IEventService eventService, IMapper mapper)
     {
@@ -59,9 +58,12 @@ public class EventController : ControllerBase
 
 
     [HttpPut("{id:Guid}")]
-    public async Task Update([FromRoute] Guid id, UpdateEventRequest request)
+    public async Task<EventResponse> Update([FromRoute] Guid id, UpdateEventRequest request)
     {
-        await eventService.Update(id, mapper.Map<UpdateEventModel>(request));
+        //var model = mapper.Map<UpdateEventModel>(request);
+        var result = await eventService.Update(id, mapper.Map<UpdateEventModel>(request));
+
+        return mapper.Map<EventResponse>(result);
     }
 
 

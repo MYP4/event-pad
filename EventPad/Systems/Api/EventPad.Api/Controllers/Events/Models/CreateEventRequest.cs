@@ -1,4 +1,7 @@
-﻿using EventPad.Context.Entities;
+﻿using AutoMapper;
+using EventPad.Context.Entities;
+using EventPad.Services.Events;
+
 
 namespace EventPad.Api.Controllers.Events;
 
@@ -16,4 +19,14 @@ public class CreateEventRequest
     public Guid AdminId { get; set; }
     public string AdminName { get; set; }
 }
+
+
+public class EventCreateProfile : Profile
+{
+    public EventCreateProfile()
+    {
+        CreateMap<CreateEventRequest, CreateEventModel>();
+    }
+}
+
 

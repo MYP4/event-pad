@@ -28,8 +28,9 @@ public class CreateModelProfile : Profile
             .ForMember(dest => dest.Photos, opt => opt.Ignore())
             .ForMember(dest => dest.Tickets, opt => opt.Ignore())
             .ForMember(dest => dest.EventAccount, opt => opt.Ignore())
-
-            .AfterMap<CreateModelActions>();
+            .ForMember(dest => dest.Uid, opt => opt.Ignore())
+            .AfterMap<CreateModelActions>()
+            ;
     }
 }
 

@@ -43,5 +43,6 @@ public class EventAccountModelActions : IMappingAction<EventAccount, EventAccoun
         var model = db.Events.FirstOrDefaultAsync(x => x.Id == source.EventId).GetAwaiter().GetResult();
 
         dest.Id = model.Uid;
+        dest.AccountNumber = source.AccountNumber;
     }
 }

@@ -71,9 +71,9 @@ public class EventService : IEventService
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var events = await context.Events.FirstOrDefaultAsync(x => x.Uid == id);
+        var _event = await context.Events.FirstOrDefaultAsync(x => x.Uid == id);
 
-        var result = mapper.Map<EventModel>(events);
+        var result = mapper.Map<EventModel>(_event);
 
         return result;
     }
@@ -85,6 +85,8 @@ public class EventService : IEventService
         using var context = await dbContextFactory.CreateDbContextAsync();
 
         var _event = mapper.Map<Event>(model);
+
+        _event.Uid = Guid.NewGuid();
 
         await context.Events.AddAsync(_event);
 

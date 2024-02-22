@@ -44,7 +44,7 @@ public static class DbSeeder
         if (await context.Events.AnyAsync())
             return;
 
-        await context.Events.AddRangeAsync(new DemoHelper().GetBooks);
+        await context.Events.AddRangeAsync(new DemoHelper().GetEvents);
 
         await context.SaveChangesAsync();
     }

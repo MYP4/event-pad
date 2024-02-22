@@ -44,7 +44,7 @@ public class EventAccountService : IEventAccountService
     {
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var _event = context.Events.FirstOrDefaultAsync(x => x.Uid == id);
+        var _event = await context.Events.FirstOrDefaultAsync(x => x.Uid == id);
 
         if (_event == null)
             throw new ProcessException($"Event (ID = {id}) not found.");
@@ -90,7 +90,7 @@ public class EventAccountService : IEventAccountService
 
         using var context = await dbContextFactory.CreateDbContextAsync();
 
-        var _event = context.Events.FirstOrDefaultAsync(x => x.Uid == id);
+        var _event = await context.Events.FirstOrDefaultAsync(x => x.Uid == id);
 
         if (_event == null)
             throw new ProcessException($"Event (ID = {id}) not found.");
@@ -105,16 +105,4 @@ public class EventAccountService : IEventAccountService
 
         return mapper.Map<EventAccountModel>(eventAccount);
     }
-
-    //public async Task Delete(Guid id)
-    //{
-    //    using var context = await dbContextFactory.CreateDbContextAsync();
-
-    //    var eventAccount = await context.Events.FirstOrDefaultAsync(x => x.Uid == id);
-
-    //    if (eventAccount == null)
-    //        throw new ProcessException($"EventAcount (ID = {id}) not found.");
-
-    //    context.Events.Remove(eventAccount);
-    //}
 }

@@ -30,7 +30,6 @@ public class EventModelProfile : Profile
             .ForMember(dest => dest.Id, opt => opt.Ignore())
             .ForMember(dest => dest.AdminId, opt => opt.Ignore())
             .ForMember(dest => dest.AdminName, opt => opt.Ignore())
-
             ;
     }
 }

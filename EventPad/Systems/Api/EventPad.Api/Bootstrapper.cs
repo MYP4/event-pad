@@ -5,6 +5,7 @@ using EventPad.Services.Settings;
 using EventPad.Context.Seeder;
 using EventPad.Services.Events;
 using EventPad.Services.EventAccounts;
+using EventPad.Services.CashoutEventReceipts;
 
 public static class Bootstrapper
 {
@@ -18,6 +19,7 @@ public static class Bootstrapper
             .AddDbSeeder()
             .AddEventService()
             .AddEventAccountService()
+            .AddCashoutEventReceiptService()
             ;
 
         return services;

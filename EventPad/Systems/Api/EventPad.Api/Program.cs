@@ -4,6 +4,7 @@ using EventPad.Common.Settings;
 using EventPad.Services.Logger;
 using EventPad.Services.Settings;
 using EventPad.Context;
+using EventPad.Context.Seeder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,8 +51,10 @@ app.UseAppControllerAndViews();
 app.UseAppMiddlewares();
 
 
-
 DbInitializer.Execute(app.Services);
+
+DbSeeder.Execute(app.Services);
+
 
 logger.Information("The EventPad API was started");
 

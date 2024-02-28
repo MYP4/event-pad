@@ -10,9 +10,9 @@
     <PackageReference Include="AutoMapper" Version="12.0.1" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Data\EventPad.Context.Entities\EventPad.Context.Entities.csproj" />
-    <ProjectReference Include="..\Data\EventPad.Context\EventPad.Context.csproj" />
+  <ItemGroup>    
+	<ProjectReference Include="..\..\Data\EventPad.Context.Entities\EventPad.Context.Entities.csproj" />
+    <ProjectReference Include="..\..\Data\EventPad.Context\EventPad.Context.csproj" />
   </ItemGroup>
 
 </Project>

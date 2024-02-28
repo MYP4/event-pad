@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using EventPad.Context;
 using EventPad.Context.Entities;
+using EventPad.Services.EventAccounts;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 

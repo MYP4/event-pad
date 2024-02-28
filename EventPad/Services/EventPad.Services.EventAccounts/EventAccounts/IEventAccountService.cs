@@ -1,6 +1,6 @@
 ﻿using EventPad.Context.Entities;
 
-namespace EventPad.Services.Events;
+namespace EventPad.Services.EventAccounts;
 
 public interface IEventAccountService
 {

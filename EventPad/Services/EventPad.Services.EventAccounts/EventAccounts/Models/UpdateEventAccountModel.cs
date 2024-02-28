@@ -2,7 +2,7 @@
 using EventPad.Context.Entities;
 using FluentValidation;
 
-namespace EventPad.Services.Events;
+namespace EventPad.Services.EventAccounts;
 
 public class UpdateEventAccountModel
 {

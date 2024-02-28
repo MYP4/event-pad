@@ -4,7 +4,7 @@ using EventPad.Context;
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
-namespace EventPad.Services.Events;
+namespace EventPad.Services.EventAccounts;
 
 public class CreateEventAccountModel
 {

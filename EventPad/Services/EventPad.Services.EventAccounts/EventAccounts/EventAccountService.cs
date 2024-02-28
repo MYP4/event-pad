@@ -6,7 +6,7 @@ using EventPad.Context;
 using EventPad.Context.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace EventPad.Services.Events;
+namespace EventPad.Services.EventAccounts;
 
 public class EventAccountService : IEventAccountService
 {

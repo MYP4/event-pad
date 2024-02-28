@@ -11,7 +11,6 @@ public class CreateEventCashoutRequest
 
     public string BankAccount { get; set; }
     public float Amount { get; set; }
-    public DateTime DateTime { get; set; }
     public string RKTransactionId { get; set; }
 }
 

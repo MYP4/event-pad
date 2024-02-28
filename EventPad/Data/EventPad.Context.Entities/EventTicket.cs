@@ -1,23 +1,12 @@
 ﻿using EventPad.Context.Entities.Common;
 
 namespace EventPad.Context.Entities;
-
-public enum Week
-{
-    Monday = 0,
-    Tuesday = 1, 
-    Wednesday = 2,
-    Thursday = 3,
-    Friday = 4,
-    Saturday = 5,
-    Sunday = 6
-}
-
 public enum TicketStatus
 {
     Paid = 0,
     Booked = 1,
-    Returned = 2
+    Returned = 2,
+    Free = 3
 }
 
 public class EventTicket : BaseEntity
@@ -29,7 +18,7 @@ public class EventTicket : BaseEntity
     public float? Price { get; set; }
     public string? Address { get; set; }
     public DateTime? DateTime { get; set; }
-    public Week? WeekDay { get; set; }
+    public DayOfWeek? DayOfWeek { get; set; }
     public bool Private { get; set; }
     public string ArticleNumber { get; set; }
     public TicketStatus Status { get; set; }

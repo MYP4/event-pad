@@ -7,8 +7,8 @@ public class RefundReceipt : BaseEntity
     public int UserAccountId { get; set; }
     public virtual UserAccount UserAccount { get; set; }
 
-    public int EventTicketId { get; set; }
-    public virtual EventTicket EventTicket { get; set; }
+    public int SpecificEventId { get; set; }
+    public virtual SpecificEvent SpecificEvent { get; set; }
 
     public float Amount { get; set; }
     public DateTime DateTime { get; set; }

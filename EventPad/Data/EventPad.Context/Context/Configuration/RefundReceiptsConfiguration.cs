@@ -13,6 +13,6 @@ public static class RefundReceiptsConfiguration
         modelBuilder.Entity<RefundReceipt>().Property(x => x.DateTime).IsRequired();
 
         modelBuilder.Entity<RefundReceipt>().HasOne(x => x.UserAccount).WithMany(x => x.Refunds).HasForeignKey(x => x.UserAccountId);
-        modelBuilder.Entity<RefundReceipt>().HasOne(x => x.EventTicket).WithMany(x => x.Refunds).HasForeignKey(x => x.EventTicketId);
+        modelBuilder.Entity<RefundReceipt>().HasOne(x => x.SpecificEvent).WithMany(x => x.Refunds).HasForeignKey(x => x.SpecificEventId);
     }
 }

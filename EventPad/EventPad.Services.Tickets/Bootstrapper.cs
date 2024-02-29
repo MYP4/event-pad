@@ -1,12 +1,12 @@
-﻿namespace EventPad.Services.Tickets;
+﻿namespace EventPad.Services.Specific;
 
 using Microsoft.Extensions.DependencyInjection;
 
 public static class Bootstrapper
 {
-    public static IServiceCollection AddEventAccountService(this IServiceCollection services)
+    public static IServiceCollection AddSpecificEventService(this IServiceCollection services)
     {
         return services
-            .AddSingleton<ITicketService, TicketService>();
+            .AddSingleton<ISpecificEventService, SpecificEventService>();
     }
 }

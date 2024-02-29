@@ -14,7 +14,6 @@ public class DemoHelper
             Description = "1 hour",
             Price = 100,
             Address = "VSU",
-            Status = EventStatus.Started,
             Type = EventType.Multiple,
             MainPhoto = "None",
             Admin = new User()
@@ -43,7 +42,6 @@ public class DemoHelper
             Description = "1 hour",
             Price = 100,
             Address = "VSU",
-            Status = EventStatus.Started,
             Type = EventType.Single,
             MainPhoto = "None",
             Admin = new User()

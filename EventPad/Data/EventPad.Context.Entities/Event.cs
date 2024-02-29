@@ -8,7 +8,6 @@ public class Event : BaseEntity
     public string? Description { get; set; }
     public float Price { get; set; }
     public string Address { get; set; }
-    public EventStatus Status { get; set; }
     public EventType Type {  get; set; }
     public string? MainPhoto { get; set; }
 
@@ -19,5 +18,5 @@ public class Event : BaseEntity
     public virtual EventAccount EventAccount { get; set; }
 
     public virtual ICollection<EventPhoto>? Photos { get; set; }
-    public virtual ICollection<EventTicket>? Tickets { get; set; }
+    public virtual ICollection<SpecificEvent>? SpecificEvents { get; set; }
 }

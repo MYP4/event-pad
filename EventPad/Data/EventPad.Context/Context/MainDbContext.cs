@@ -12,7 +12,7 @@ public class MainDbContext : DbContext
     public DbSet<EventPhoto> EventPhotos { get; set; }
     public DbSet<CashoutEventReceipt> CashoutEventReceipts { get; set; }
     public DbSet<EventTicket> EventTickets { get; set; }
-    public DbSet<EventVisitor> EventVisitors { get; set; }
+    public DbSet<SpecificEvent> SpecificEvents { get; set; }
     public DbSet<PurchaseReceipt> PurchaseReceipts { get; set; }
     public DbSet<RefundReceipt> RefundReceipts { get; set; }
     public DbSet<DepositReceipt> DepositReceipts { get; set; }
@@ -29,8 +29,8 @@ public class MainDbContext : DbContext
         modelBuilder.ConfigureEvents();
         modelBuilder.ConfigureEventAccounts();
         modelBuilder.ConfigureEventPhotos();
+        modelBuilder.ConfigureEventSpecificEvents();
         modelBuilder.ConfigureEventTickets();
-        modelBuilder.ConfigureEventVisitors();
         modelBuilder.ConfigureCashoutEventReceipts();
         modelBuilder.ConfigureCashoutReceipts();
         modelBuilder.ConfigureDepositReceipts();

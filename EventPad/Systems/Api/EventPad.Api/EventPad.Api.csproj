@@ -31,6 +31,7 @@
       <ProjectReference Include="..\..\..\Data\EventPad.Context.Seeder\EventPad.Context.Seeder.csproj" />
       <ProjectReference Include="..\..\..\Data\EventPad.Context\EventPad.Context.csproj" />
       <ProjectReference Include="..\..\..\EventPad.Services.CashoutEventReceipts\EventPad.Services.CashoutEventReceipts.csproj" />
+      <ProjectReference Include="..\..\..\EventPad.Services.Tickets\EventPad.Services.SpecificEvent.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.CashoutEventReceipts\EventPad.Services.CashoutEventReceipts.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.EventAccounts\EventPad.Services.EventAccounts.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Events\EventPad.Services.Events.csproj" />
@@ -40,7 +41,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Controllers\Tickets\Models\" />
       <Folder Include="logs\" />
     </ItemGroup>
 

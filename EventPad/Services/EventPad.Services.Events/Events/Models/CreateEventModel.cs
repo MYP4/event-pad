@@ -27,7 +27,7 @@ public class CreateModelProfile : Profile
         CreateMap<CreateEventModel, Event>()
             .ForMember(dest => dest.AdminId, opt => opt.Ignore())
             .ForMember(dest => dest.Photos, opt => opt.Ignore())
-            .ForMember(dest => dest.Tickets, opt => opt.Ignore())
+            .ForMember(dest => dest.SpecificEvents, opt => opt.Ignore())
             .ForMember(dest => dest.EventAccount, opt => opt.Ignore())
             .ForMember(dest => dest.Uid, opt => opt.Ignore())
             .AfterMap<CreateModelActions>()
@@ -53,7 +53,6 @@ public class CreateModelActions : IMappingAction<CreateEventModel, Event>
         var admin = db.Users.FirstOrDefault(x => x.Uid == source.AdminId);
 
         dest.AdminId = admin.Id;
-        dest.Status = EventStatus.Planned;
         dest.EventAccount = account;
     }
 }

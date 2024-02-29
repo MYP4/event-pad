@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using EventPad.Services.Events;
+using EventPad.Services.EventAccounts;
 
 namespace EventPad.Api.Controllers.EventAccounts;
 

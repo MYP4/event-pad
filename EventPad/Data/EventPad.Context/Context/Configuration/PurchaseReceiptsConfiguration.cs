@@ -13,6 +13,6 @@ public static class PurchaseReceiptsConfiguration
         modelBuilder.Entity<PurchaseReceipt>().Property(x => x.DateTime).IsRequired();
 
         modelBuilder.Entity<PurchaseReceipt>().HasOne(x => x.UserAccount).WithMany(x => x.Purchases).HasForeignKey(x => x.UserAccountId);
-        modelBuilder.Entity<PurchaseReceipt>().HasOne(x => x.EventTicket).WithMany(x => x.Purchases).HasForeignKey(x => x.EventTicketId);
+        modelBuilder.Entity<PurchaseReceipt>().HasOne(x => x.SpecificEvent).WithMany(x => x.Purchases).HasForeignKey(x => x.SpecificEventId);
     }
 }

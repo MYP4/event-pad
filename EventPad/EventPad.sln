@@ -53,7 +53,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Services.EventAcco
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Services.CashoutEventReceipts", "Services\EventPad.Services.CashoutEventReceipts\EventPad.Services.CashoutEventReceipts.csproj", "{9E028D90-DAED-46E8-ADF2-F1C617FF6409}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventPad.Services.Tickets", "EventPad.Services.Tickets\EventPad.Services.Tickets.csproj", "{91D27627-A4C7-4324-940A-610B7BFF127F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Services.SpecificEvent", "EventPad.Services.Tickets\EventPad.Services.SpecificEvent.csproj", "{91D27627-A4C7-4324-940A-610B7BFF127F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

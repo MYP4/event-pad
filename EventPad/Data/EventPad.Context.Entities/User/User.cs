@@ -12,5 +12,5 @@ public class User : BaseEntity
 
     public virtual ICollection<Event>? Events { get; set; }
     public virtual ICollection<CashoutEventReceipt>? CashoutEventReceipts { get; set; }
-    public virtual ICollection<EventVisitor>? EventVisitors { get; set; }
+    public virtual ICollection<EventTicket>? EventTickets { get; set; }
 }

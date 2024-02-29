@@ -1,8 +1,10 @@
-﻿using EventPad.Context.Entities;
+﻿using AutoMapper;
+using EventPad.Context.Entities;
+using EventPad.Services.Specific;
 
-namespace EventPad.Services.Tickets;
+namespace EventPad.Api.Controllers.Specific;
 
-public class TicketModel
+public class SpecificResponse
 {
     public Guid Id { get; set; }
     public Guid EventId { get; set; }
@@ -13,5 +15,14 @@ public class TicketModel
     public DateTime? DateTime { get; set; }
     public bool Private { get; set; }
     public string ArticleNumber { get; set; }
-    public TicketStatus Status { get; set; }    
+    public EventStatus Status { get; set; }
+}
+
+
+public class SpecificResponceProfile : Profile
+{
+    public SpecificResponceProfile()
+    {
+        CreateMap<SpecificEventModel, SpecificResponse>();
+    }
 }

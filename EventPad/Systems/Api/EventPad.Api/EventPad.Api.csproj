@@ -30,13 +30,12 @@
       <ProjectReference Include="..\..\..\Data\EventPad.Context.Migrations\EventPad.Context.Migrations.PgSQL\EventPad.Context.Migrations.PgSql.csproj" />
       <ProjectReference Include="..\..\..\Data\EventPad.Context.Seeder\EventPad.Context.Seeder.csproj" />
       <ProjectReference Include="..\..\..\Data\EventPad.Context\EventPad.Context.csproj" />
-      <ProjectReference Include="..\..\..\EventPad.Services.CashoutEventReceipts\EventPad.Services.CashoutEventReceipts.csproj" />
-      <ProjectReference Include="..\..\..\EventPad.Services.Tickets\EventPad.Services.SpecificEvent.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.CashoutEventReceipts\EventPad.Services.CashoutEventReceipts.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.EventAccounts\EventPad.Services.EventAccounts.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Events\EventPad.Services.Events.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Logger\EventPad.Services.Logger.csproj" />
       <ProjectReference Include="..\..\..\Services\EventPad.Services.Settings\EventPad.Services.Settings.csproj" />
+      <ProjectReference Include="..\..\..\Services\EventPad.Services.SpecificEvents\EventPad.Services.SpecificEvent.csproj" />
       <ProjectReference Include="..\..\..\Shared\EventPad.Common\EventPad.Common.csproj" />
     </ItemGroup>
 

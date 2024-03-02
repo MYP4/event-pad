@@ -55,8 +55,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Services.CashoutEv
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Services.SpecificEvent", "Services\EventPad.Services.SpecificEvents\EventPad.Services.SpecificEvent.csproj", "{D2C9ED9C-CC67-44DB-9602-C521C7F678F8}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EventPad.Services.SpecificEvent", "Services\EventPad.Services.SpecificEvents\EventPad.Services.SpecificEvent.csproj", "{36F47FBD-BD13-4F6C-803C-65E87D14E9BF}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,10 +113,6 @@ Global
 		{D2C9ED9C-CC67-44DB-9602-C521C7F678F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2C9ED9C-CC67-44DB-9602-C521C7F678F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C9ED9C-CC67-44DB-9602-C521C7F678F8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{36F47FBD-BD13-4F6C-803C-65E87D14E9BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36F47FBD-BD13-4F6C-803C-65E87D14E9BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36F47FBD-BD13-4F6C-803C-65E87D14E9BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36F47FBD-BD13-4F6C-803C-65E87D14E9BF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,7 +135,6 @@ Global
 		{6134B54B-6AE7-4D1C-AA65-6BB043395BD9} = {6C329BAC-B6F6-4EEA-82D2-7FB53C870407}
 		{9E028D90-DAED-46E8-ADF2-F1C617FF6409} = {6C329BAC-B6F6-4EEA-82D2-7FB53C870407}
 		{D2C9ED9C-CC67-44DB-9602-C521C7F678F8} = {6C329BAC-B6F6-4EEA-82D2-7FB53C870407}
-		{36F47FBD-BD13-4F6C-803C-65E87D14E9BF} = {6C329BAC-B6F6-4EEA-82D2-7FB53C870407}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E0E433B-0D0E-44D5-B733-2BC156AE1A4A}
